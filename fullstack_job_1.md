@@ -1,7 +1,5 @@
 # Aamira Courier – Package Tracker Coding Exercise
 
-**Audience:** Full-stack/front-end/back-end software developer candidates.
-
 **Estimated Effort:** \~6–8 hours of hands-on work (spread across a few days is fine). You do *not* need to build a production-ready system; we’re evaluating how you analyze requirements, make technical choices, and deliver a coherent working slice.
 
 ---
@@ -31,8 +29,6 @@ The company currently uses spreadsheets and text messages—error‑prone, delay
 3. **Expose a real-time dispatcher dashboard** showing current status, location, and ETA for every active package.
 4. **Generate alerts** when a package hasn’t advanced for more than 30 minutes.
 
-> **You may choose *****any***** programming language, framework, database or cloud provider.** Use whatever stack lets you produce your best work quickly.
-
 ---
 
 ## 4. Data Model (Suggested – You May Extend)
@@ -57,10 +53,10 @@ You may change names, but please document if you do.
 ```
 CREATED          – Label generated; not yet picked up.
 PICKED_UP        – Courier has the package.
-IN_TRANSIT       – Moving between facilities / route stops.
+IN_TRANSIT       – Moving between facilities/route stops.
 OUT_FOR_DELIVERY – On vehicle and en route to final drop.
-DELIVERED        – Delivered to recipient.
-EXCEPTION        – Delay / address issue / weather hold.
+DELIVERED        – Delivered to the recipient.
+EXCEPTION        – Delay/address issue/weather hold.
 CANCELLED        – Shipment cancelled.
 ```
 
