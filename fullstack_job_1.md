@@ -87,7 +87,7 @@ Below are the must-haves. Meet these first; anything extra is a bonus.
 
 ### F2. Persist State & History
 
-- Store *every* event in a durable store (SQL, NoSQL, flat file + WAL—your call) so you can reconstruct history.
+- Store *every* event in a durable store (SQL, NoSQL —your call) so you can reconstruct history.
 - Track the **current state** per package (last valid event by timestamp).
 - On service restart, dashboard should rebuild current view from persistence.
 
