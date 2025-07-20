@@ -1,6 +1,6 @@
 # Aamira Courier – Package Tracker Coding Exercise
 
-**Audience:** Full-stack / front-end / back-end software developer candidates.
+**Audience:** Full-stack/front-end/back-end software developer candidates.
 
 **Estimated Effort:** \~6–8 hours of hands-on work (spread across a few days is fine). You do *not* need to build a production-ready system; we’re evaluating how you analyze requirements, make technical choices, and deliver a coherent working slice.
 
@@ -162,64 +162,7 @@ Bonus points: containerization, CI pipeline, deployed demo URL, metrics/logging,
 
 ---
 
-## 9. Submission Checklist
 
-Before submitting, please confirm:
-
--
-
----
-
-## 10. Quickstart Reference Implementation Hints (Optional for You)
-
-Use, ignore, or adapt these suggestions as you see fit.
-
-### Suggested Minimal Tech Stack (One Example Only — Not Required)
-
-- **Backend:** Python FastAPI + SQLite (SQLModel) or Node/Express + SQLite/Postgres.
-- **Realtime:** WebSocket endpoint broadcasting new package states.
-- **Frontend:** React + Vite + Leaflet (OpenStreetMap tiles) for the map.
-- **Alert Cron:** Background task every minute scans DB for stuck packages.
-- **Auth:** Static API key from env var.
-
-### Example Table Schema (SQL-ish)
-
-```sql
-CREATE TABLE package_events (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  package_id TEXT NOT NULL,
-  status TEXT NOT NULL,
-  lat REAL,
-  lon REAL,
-  event_ts DATETIME NOT NULL,
-  received_ts DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  note TEXT
-);
-
-CREATE INDEX idx_pkg_events_pkg_ts ON package_events(package_id, event_ts DESC);
-```
-
-A materialized "current\_state" view can speed dashboard queries.
-
----
-
-## 11. Example Alert Logic (Pseudo-code)
-
-```python
-# runs every minute
-now = utcnow()
-threshold = now - timedelta(minutes=30)
-
-# last event per package
-for pkg in get_active_packages():
-    last_event = get_last_event(pkg)
-    if last_event.event_ts < threshold:
-        if not already_alerted(pkg, last_event.event_ts):
-            create_alert(pkg, last_event)
-            notify_dispatcher(pkg)
-```
-
-Document if you use event\_ts vs received\_ts to measure "stuck" — each has trade-offs.
 
 ---
 
@@ -240,7 +183,7 @@ Document if you use event\_ts vs received\_ts to measure "stuck" — each has tr
 *Row highlights red; alert banner.
 ```
 
-Clicking a row opens package history + map pin.
+Clicking a row opens the package history + map pin.
 
 ---
 
@@ -255,9 +198,9 @@ You do **not** need: full auth/roles system, production CI/CD, mobile apps, geo-
 We will:
 
 1. Check your github repo and README.
-2. In a virtual meeting you will give a demo.
+2. In an Online meeting, you will give a demo.
    1. Post sample events; confirm dashboard updates & stuck alerts.
-3. Scan code structure, tests, error handling.
+3. Scan code structure, tests, and error handling.
 4. Review your assumptions & design notes.
 
 
@@ -274,11 +217,6 @@ In a real engagement, you’d ask questions early. For the exercise, you may:
 
 ---
 
-### Copy-Paste Summary Block (Short Form for the Test Instructions Page)
-
-> Build a minimal internal *Package Tracker* for Acme Courier. Couriers send status/location updates; system stores history; dispatcher sees a live dashboard of active packages and is alerted when a package has no new status for >30 min. Use any tech stack. Deliver code, setup instructions, tests, and an assumptions note.
-
----
 
 **Thank you & good luck!** We’re excited to see how you think and build.
 
