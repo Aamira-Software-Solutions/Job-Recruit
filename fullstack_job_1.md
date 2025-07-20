@@ -6,7 +6,7 @@
 
 ## 1. Business Context (What Problem Are We Solving?)
 
-Acme Courier provides **same-day delivery** services in several metro areas. Dispatchers need to know where packages are, whether they’re moving on schedule, and when to intervene if something is stuck. Couriers use a mobile device to report status updates as they pick up and drop off packages throughout the day.
+Aamira Courier provides **same-day delivery** services in several metro areas. Dispatchers need to know where packages are, whether they’re moving on schedule, and when to intervene if something is stuck. Couriers use a mobile device to report status updates as they pick up and drop off packages throughout the day.
 
 The company currently uses spreadsheets and text messages—error‑prone, delayed, and impossible to audit. We want a minimal but functional **internal Package Tracker** to replace this ad‑hoc process.
 
@@ -96,7 +96,7 @@ Below are the must-haves. Meet these first; anything extra is a bonus.
 - Web UI that lists all **active** packages (not DELIVERED or CANCELLED) seen in the last 24 hours.
 - Each row/card shows: `package_id`, current `status`, time since last update, and (if available) map location.
 - Include a way to drill into a **Package Detail** view: chronological event timeline.
-- **Real-time requirement:** When a new update arrives, dispatchers should see the change *without reloading the page.* Acceptable strategies: WebSockets, Server-Sent Events, long-polling, or periodic polling ≤5s. Document which you chose and why.
+- **Real-time requirement:** When a new update arrives, dispatchers should see the change *without reloading the page* (waiting time  ≤5s). Document how have you solved this.
 - Display `eta` if available. If you don’t compute ETA, show "—".
 
 ### F4. Stuck-Package Alerting (>30 Minutes)
@@ -114,17 +114,13 @@ Below are the must-haves. Meet these first; anything extra is a bonus.
 - Acceptable: simple API token in header, HTTP basic auth, or signed HMAC per request.
 - Document how to configure credentials.
 
-### F6. Minimal Seed / Demo Data
-
-- Include a script or README instructions to seed 5–10 sample packages and simulate updates so reviewers can run and see the UI quickly.
-
 ---
 
 ## 6. Non-Functional Expectations
 
 | Area             | Minimum                                                      | Nice-to-Have                                               |
 | ---------------- | ------------------------------------------------------------ | ---------------------------------------------------------- |
-| **Build/Run**    | Clear README; one or two commands to run locally.            | Docker Compose; Makefile; IaC snippet (Terraform, Pulumi). |
+| **Build/Run**    | Clear README; one or two commands to run locally.            | Docker Compose; Makefile. |
 | **Reliability**  | Doesn’t crash on malformed input; logs errors.               | Retry strategy for transient DB/queue errors.              |
 | **Code Quality** | Idiomatic, modular, readable, linted.                        | Layered architecture, typed models, domain services.       |
 
@@ -160,13 +156,11 @@ Bonus points: containerization, CI pipeline, deployed demo URL, metrics/logging,
 
 
 
----
-
-## 12. Minimal UI Wireframe (ASCII)
+## 9. Minimal UI Wireframe (ASCII)
 
 ```
 +------------------------------------------------------------+
-|  Acme Package Tracker                                      |
+|  Aamira Package Tracker                                      |
 +------------------------------------------------------------+
 | Search: [___________]   Filter: [Active ▼]                 |
 +----+------------+--------------+-----------+---------------+
@@ -183,13 +177,13 @@ Clicking a row opens the package history + map pin.
 
 ---
 
-## 13. What *Not* Required (Don’t Over-Engineer)
+## 10. What *Not* Required (Don’t Over-Engineer)
 
 You do **not** need: full auth/roles system, production CI/CD, mobile apps, geo-routing optimization, multi-tenant billing, or bulletproof scaling. Focus on the core workflow.
 
 ---
 
-## 14. How We Review Your Work
+## 11. How We Review Your Work
 
 We will:
 
@@ -201,15 +195,6 @@ We will:
 
 
 We care more about **clarity, reasoning, and correctness** than feature breadth.
-
----
-
-## 15. Questions?
-
-In a real engagement, you’d ask questions early. For the exercise, you may:
-
-- Include questions inline in your README and answer them with your assumptions.
-- (If this is a live interview) Feel free to email your contact with clarifications before starting.
 
 ---
 
